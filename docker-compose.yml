@@ -1,0 +1,24 @@
+# Postgres for local development.
+#
+#   docker compose up -d
+#   export DATABASE_URL=postgres://settlements:settlements@localhost:5432/settlements
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: settlements
+      POSTGRES_PASSWORD: settlements
+      POSTGRES_DB: settlements
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U settlements"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

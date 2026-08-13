@@ -1,0 +1,10 @@
+Django==6.1
+djangorestframework==3.18.0
+djangorestframework-simplejwt==5.5.1
+django-cors-headers==4.9.0
+django-filter==26.1
+dj-database-url==3.1.2
+python-dotenv==1.2.2
+psycopg[binary]==3.3.4
+whitenoise==6.11.0
+gunicorn==23.0.0
